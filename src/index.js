@@ -2,6 +2,12 @@ import Vuefake from './core/instance/index'
 
 
 const vuefake = new Vuefake({
+    beforeCreate() {
+        console.log('before create')
+    },
+    created() {
+        console.log('created')
+    },
     data() {
         return {
             count: 1

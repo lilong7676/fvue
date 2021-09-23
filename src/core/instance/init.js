@@ -1,4 +1,5 @@
 import {initState} from "./state";
+import {callHook} from "./lifecircle";
 
 let uid = 0
 
@@ -13,7 +14,9 @@ export function initMixin(Vue) {
 
         vm._self = vm
 
+        callHook(vm, 'beforeCreate')
         initState(vm)
+        callHook(vm, 'created')
 
     }
 }

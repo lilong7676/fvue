@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00425e46-e201-40af-8774-0abe719adf61" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.babelrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/instance/lifecircle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/webpack/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/webpack/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/instance/init.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/instance/init.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
