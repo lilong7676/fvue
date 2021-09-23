@@ -1,0 +1,27 @@
+{
+  "name": "vuefake",
+  "version": "1.0.0",
+  "description": "a fake vue for learn",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config ./config/webpack/webpack.config.js"
+  },
+  "keywords": [
+    "vue",
+    "source",
+    "code",
+    "learn"
+  ],
+  "author": "lll",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/preset-env": "^7.15.6",
+    "babel-loader": "^8.2.2",
+    "html-webpack-plugin": "4",
+    "webpack": "^4",
+    "webpack-cli": "^4.8.0"
+  }
+}
