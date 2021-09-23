@@ -65,13 +65,19 @@ export default class Watcher {
 
     // Evaluate getter, and re-collect dependencies
     get() {
-        console.log('watcher get re-collect dependencies')
+        /*
+        关键点，在执行getter前，先将当前watcher作为最新的Dep.target，
+        执行getter过程中，如果有访问到带有reactiveGetter的属性，则reactiveGetter内部会执行
+        * */
         pushWatcher(this)
         const vm = this.vm
 
         let value = this.getter.call(vm, vm)
         // TODO deep
         popWatcher()
+
+        // cleanup 清除旧的依赖，
+        this.cleanupDeps()
 
         return value
     }
@@ -83,9 +89,33 @@ export default class Watcher {
             this.newDepIds.add(id)
             this.newDeps.push(dep)
             if (!this.depIds.has(id)) {
+                /*
+                关键点，
+                * */
                 dep.addSub(this)
             }
         }
+    }
+
+    // 每次依赖收集后，用当前的依赖替换掉旧的依赖，防止旧的依赖（没用的依赖）执行
+    cleanupDeps() {
+        let i = this.deps.length
+        while (i--) {
+            const dep = this.deps[i]
+            if (!this.newDepIds.has(dep.id)) {
+                // 在新的依赖里没有发现这个依赖，则移除掉
+                dep.removeSub(this)
+            }
+        }
+        let temp = this.depIds
+        this.depIds = this.newDepIds
+        this.newDepIds = temp
+        this.newDepIds.clear()
+
+        temp = this.deps
+        this.deps = this.newDeps
+        this.newDeps = temp
+        this.newDeps.length = 0
     }
 
     update() {
@@ -99,7 +129,6 @@ export default class Watcher {
     // run cb
     run() {
         if (this.active) {
-
             const newVal = this.get()
             if (newVal !== this.value || isObject(newVal) || this.deep) {
                 const oldValue = this.value

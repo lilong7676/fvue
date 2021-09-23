@@ -46,4 +46,5 @@ export function pushWatcher(watcher) {
 
 export function popWatcher() {
     watcherStack.pop()
+    Dep.watcher = watcherStack[watcherStack.length - 1]
 }

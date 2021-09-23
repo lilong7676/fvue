@@ -88,7 +88,6 @@ export function defineReactive(
         get: function reactieveGetter() {
             const value = getter ? getter.call(obj) : val
             if (Dep.watcher) {
-                console.log('Dep.watcher', Dep.watcher)
                 dep.depend()
                 if (childOb) {
                     childOb.dep.depend()

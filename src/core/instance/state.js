@@ -2,6 +2,7 @@ import Watcher from "../observer/watcher";
 import {pushWatcher, popWatcher} from "../observer/dep";
 import {noop} from "../shared/utils";
 import {observe} from "../observer";
+import Dep from '../observer/dep'
 
 const sharedPropertyDesc = {
     enumerable: true,
@@ -55,6 +56,12 @@ export function initState(vm) {
     if (opts.data) {
         initData(vm)
     }
+    if (opts.computed) {
+        initComputed(vm)
+    }
+    if (opts.watch) {
+        initWatch(vm)
+    }
 }
 
 
@@ -76,4 +83,54 @@ function initData(vm) {
     // observe data
     observe(data, true)
 
+}
+
+
+function initComputed(vm) {
+    let computed = vm.$options.computed
+    const watchers = vm._computedWatchers = Object.create(null)
+    Object.keys(computed).forEach(key => {
+        const getter = computed[key]
+        if (typeof getter === 'function') {
+            watchers[key] = new Watcher(vm, getter, noop, {lazy: true})
+        } else {
+            console.warn('computed item must be a function')
+        }
+
+        if (!(key in vm)) {
+            defineComputed(vm, key, getter)
+        }
+
+    })
+}
+
+export function defineComputed(vm, key, getter) {
+    sharedPropertyDesc.get = createComputedGetter(key)
+    sharedPropertyDesc.set = noop
+    Object.defineProperty(vm, key, sharedPropertyDesc)
+}
+
+function createComputedGetter(key) {
+    return function computedGetter() {
+        const watcher = this._computedWatchers[key]
+        if (watcher) {
+            console.log('call computed getter', key, ' dirty', watcher.dirty)
+            if (watcher.dirty) {
+                watcher.evaluate()
+            }
+            if (Dep.watcher) {
+                watcher.depend()
+            }
+            return watcher.value
+        }
+    }
+}
+
+
+function initWatch(vm) {
+    const watches = vm.$options.watch
+    Object.keys(watches).forEach(key => {
+        const cb = watches[key]
+        vm.$watch(key, cb)
+    })
 }
