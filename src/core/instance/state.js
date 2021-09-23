@@ -114,7 +114,6 @@ function createComputedGetter(key) {
     return function computedGetter() {
         const watcher = this._computedWatchers[key]
         if (watcher) {
-            console.log('call computed getter', key, ' dirty', watcher.dirty)
             if (watcher.dirty) {
                 watcher.evaluate()
             }

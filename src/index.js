@@ -16,6 +16,9 @@ const vuefake = new Vuefake({
         count(newVal, oldVal) {
             console.log('count changed', newVal, oldVal)
         },
+        countPlus13(newVal, oldVal) {
+            console.log('countPlus13 changed', newVal, oldVal)
+        }
     }
 })
 window.vuefake = vuefake

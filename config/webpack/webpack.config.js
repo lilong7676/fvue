@@ -7,7 +7,7 @@ const resolve = p => {
 }
 
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     entry: {
         vuefake: resolve('src/index.js')
     },
