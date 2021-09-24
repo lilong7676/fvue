@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00425e46-e201-40af-8774-0abe719adf61" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/core/instance/lifecircle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/instance/init.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/instance/init.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +27,9 @@
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="ProjectId" id="1yU2KQBF4gA0YvMlYSgXZUVRw7i" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -49,6 +48,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -73,6 +73,8 @@
       <workItem from="1632361426917" duration="3546000" />
       <workItem from="1632365014501" duration="7063000" />
       <workItem from="1632376855703" duration="5609000" />
+      <workItem from="1632467902772" duration="978000" />
+      <workItem from="1632468927215" duration="7245000" />
     </task>
     <task id="LOCAL-00001" summary="支持initComputed, initWatch">
       <created>1632377643738</created>
@@ -81,11 +83,30 @@
       <option name="project" value="LOCAL" />
       <updated>1632377643738</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="todo lifecircle, template compiler">
+      <created>1632392406509</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1632392406509</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
@@ -93,6 +114,7 @@
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
     <MESSAGE value="支持initComputed, initWatch" />
-    <option name="LAST_COMMIT_MESSAGE" value="支持initComputed, initWatch" />
+    <MESSAGE value="todo lifecircle, template compiler" />
+    <option name="LAST_COMMIT_MESSAGE" value="todo lifecircle, template compiler" />
   </component>
 </project>
